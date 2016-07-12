@@ -1,0 +1,33 @@
+<ion-view view-title="Chi tiết nhân sự">
+  <ion-content>
+
+<div class="list card">
+
+  <div class="item item-avatar">
+   <img ng-src="img/{{row.images}}">
+       <h2>{{row.ho_ten}}</h2>
+     <h2>Mã nv: {{row.ma_nhan_vien}}</h2>
+  </div>
+
+  <div class="item item-body">
+    
+    <p>
+      <h2 ng-if="row.gioi_tinh == 1">Giới tính:Nam</h2>
+     <h2 ng-if="row.gioi_tinh != 1">Giới tính:Nữ</h2>
+    <h2>Phone: {{row.dien_thoai}}</h2>
+    <h2>Mail: {{row.email}}</h2>
+    <h2>Address: {{row.dia_chi}}</h2>
+    <h2>Birthday: {{row.ngay_sinh}}</h2>
+    </p>
+  </div>
+
+  <div class=" item tabs tabs-secondary tabs-icon-left tabs-background-balanced tabs-color-dark ">
+    <a class="tab-item" href="#"> <i class="icon ion-thumbsup"></i> Công Việc </a>
+	<a class="tab-item" href="#"> <i class="icon ion-chatbox"></i> Hợp đồng </a>
+    <a class="tab-item" href="#"> <i class="icon ion-share"></i> Gia Đình </a>
+  </div>
+
+</div>
+
+  </ion-content>
+</ion-view>
