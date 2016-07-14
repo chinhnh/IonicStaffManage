@@ -1,0 +1,22 @@
+<ion-view view-title="Chi tiết công việc"  >
+<ion-content>
+<div class="list card" ng-repeat="row in data">
+	<div class="item item-avatar">
+   <img ng-src="img/{{row.images}}">
+    <h2>{{row.ho_ten}}</h2>
+    <h2>Mã nv: {{row.ma_nhan_vien}}</h2>
+  </div>
+<div class="item item-body" >
+<h2>Chức vụ: {{row.ten_chuc_vu}}</h2>
+<h2>Phòng: {{row.ten_phong_ban}}</h2>
+<h2>Công việc: {{row.ten_cong_viec}}</h2>
+<h2>Bằng cấp: {{row.ten_bang_cap}}</h2>
+<h2>Mức lương: {{row.muc_luong_cb}}</h2>
+<h2>Hệ số: {{row.he_so}}</h2>
+<h2>Phụ cấp: {{row.phu_cap}}</h2>
+<h2>Ngày vào làm: {{row.ngay_vao_lam}}</h2>
+
+</div>
+</div>
+</ion-content>
+</ion-view>

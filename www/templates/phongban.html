@@ -1,0 +1,12 @@
+<ion-view view-title="Phòng ban" hide-back-button="true">
+<ion-content>
+
+<div class="list card" ng-repeat="row in data">
+	<a class="item item-icon-left" href="#/app/phongbandetail/{{row.phong_ban_id}}">
+	<i class="icon ion-ios-people"></i>
+    <h2>Mã: {{row.phong_ban_id}}</h2>
+    <h2>Tên: {{row.ten_phong_ban}}</h2>
+</a>
+</div>
+</ion-content>
+</ion-view>

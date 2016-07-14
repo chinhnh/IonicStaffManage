@@ -33,7 +33,7 @@ angular.module('starter', ['ionic', 'starter.controllers' , 'starter.services'])
 
 	$rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
 		console.log("URL : "+toState.url);
-		if(toState.url=='/dashboard'){
+		if(toState.url=='/home'){
 			console.log("match : "+toState.url);
 			$timeout(function(){
 				angular.element(document.querySelector('#leftMenu' )).removeClass("hide");
@@ -76,17 +76,26 @@ angular.module('starter', ['ionic', 'starter.controllers' , 'starter.services'])
 //--------------------------------------
 
 
-  .state('app.dashboard', {
-    url: '/dashboard',
+  .state('app.home', {
+    url: '/home',
     views: {
       'menuContent': {
-        templateUrl: 'templates/dashboard.html',
-		controller: 'DashCtrl'
+        templateUrl: 'templates/home.html',
+		controller: 'HomeCtrl'
       }
      },
 	 authStatus: true
   })
 
+.state('app.homedetail',{
+ url: '/homedetail/:id',
+views:{
+  'menuContent':{
+    templateUrl:'templates/home-detail.html',
+    controller:'HomeDetailCtrl'
+  }
+}
+})
 
     .state('app.listns', {
       url: '/listns',
@@ -106,7 +115,52 @@ angular.module('starter', ['ionic', 'starter.controllers' , 'starter.services'])
         controller: 'DetailnsCtrl'
       }
     }
-  });
+  })
+  .state('app.phongban',{
+    url:'/phongban',
+    views:{
+     'menuContent':{
+      templateUrl:'templates/phongban.html',
+      controller:'PhongbanCtrl'
+     }
+    }
+  })
+   .state('app.phongbandetail',{
+    url:'/phongbandetail/:id',
+    views:{
+      'menuContent':{
+        templateUrl:'templates/phongban-detail.html',
+        controller:'PhongbanDetailCtrl'
+      }
+    }
+  })
+  .state('app.chucvudetail',{
+    url:'/chucvudetail/:id',
+    views:{
+      'menuContent':{
+        templateUrl:'templates/chucvu-detail.html',
+        controller:'ChucvuDetailCtrl'
+      }
+    }
+  })
+   .state('app.chucvu',{
+    url:'/chucvu',
+    views:{
+     'menuContent':{
+      templateUrl:'templates/chucvu.html',
+      controller:'ChucvuCtrl'
+     }
+    }
+  })
+      .state('app.detail',{
+    url:'/detail/:id',
+    views:{
+     'menuContent':{
+      templateUrl:'templates/detail.html',
+      controller:'DetailCtrl'
+     }
+    }
+  })
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/login');
 });

@@ -1,0 +1,12 @@
+<ion-view view-title="Chức vụ" hide-back-button="true">
+<ion-content>
+
+<div class="list card" ng-repeat="row in data">
+	<a class="item item-icon-left" href="#/app/chucvudetail/{{row.chuc_vu_id}}">
+	<i class="icon ion-android-contact"></i>
+    <h2>Mã: {{row.chuc_vu_id}}</h2>
+    <h2>Tên: {{row.ten_chuc_vu}}</h2>
+</a>
+</div>
+</ion-content>
+</ion-view>

@@ -11,8 +11,8 @@ angular.module('starter.controllers', [])
 			return false;
 		}
 
-		if(user.username=='demo@gmail.com' && user.password=='demo'){
-			$location.path('/app/dashboard');
+		if(user.username=='chinh' && user.password=='123456'){
+			$location.path('/app/home');
 		}else{
 			$scope.showAlert('Invalid username or password.');	
 		}
@@ -32,17 +32,18 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ListnsCtrl'
-	,function ($scope, Getservice) {
-       Getservice.getNhansu().
+	,function ($scope, NhansuService) {
+       NhansuService.getNhansu().
        success(function(result){
             $scope.data = result.nhansu;
+            $scope.num=result.nhansu.length;
         });
 })
 
 .controller('DetailnsCtrl'
-	,function ($scope,$stateParams, Getservice) {
+	,function ($scope,$stateParams, NhansuService) {
 		var currentId = $stateParams.id;
-       Getservice.getNhansu().
+       NhansuService.getNhansu().
        success(function(result){
  
             var data =result.nhansu ;
@@ -55,7 +56,85 @@ angular.module('starter.controllers', [])
         });
 })
 
-.controller('DashCtrl', function($scope, $stateParams , Profiles) {
-	$scope.profiles = Profiles.all();
+.controller('HomeCtrl'
+	,function ($scope, $stateParams, HomeService) {
+      HomeService.getHomeService().
+      success  (function(result){
+      	$scope.data=result;
+      });
+	
+})
+.controller('HomeDetailCtrl',
+	function ($scope,$stateParams, HomeService){
+		var currentId = $stateParams.id;
+HomeService.getHomeService().
+success ( function(result){
+	 var data =result;
+for (var i = 0; i < data.length; i++) {
+	if(data[i].id == parseInt(currentId)){
+	$scope.row=data[i];
+	
+}
+}
 });
+})
+.controller('PhongbanCtrl'
+	,function ($scope, $stateParams, PhongbanService) {
+      PhongbanService.getPhongbanService().
+      success  (function(result){
+      	$scope.data=result;
+      	$scope.num=result.length;
+      });
+	
+})
+.controller('PhongbanDetailCtrl',
+	function ($scope,$stateParams, PhongbanService){
+		var currentId = $stateParams.id;
+PhongbanService.getPhongbanService().
+success ( function(result){
+	 var data =result;
+for (var i = 0; i < data.length; i++) {
+	if(data[i].id == parseInt(currentId)){
+	$scope.row=data[i];
+	
+}
+}
+});
+})
+.controller('ChucvuCtrl'
+	,function ($scope, $stateParams, ChucvuService) {
+      ChucvuService.getChucvuService().
+      success  (function(result){
+      	$scope.data=result;
+      	$scope.num=result.length;
+      });
+	
+})
+.controller('ChucvuDetailCtrl',
+	function ($scope,$stateParams, ChucvuService){
+		var currentId = $stateParams.id;
+ChucvuService.getChucvuService().
+success ( function(result){
+	 var data =result;
+for (var i = 0; i < data.length; i++) {
+	if(data[i].id == parseInt(currentId)){
+	$scope.row=data[i];
+	
+}
+}
+});
+})
+.controller('DetailCtrl',
+	function ($scope,$stateParams, $http){
+		var currentId = $stateParams.id;
+$http.get('http://nhansu.16mb.com/apidetail/'+currentId)
+.success ( function(result){
+	$scope.data=result;
+	//console.log(result);
+});
+});
+
+
+
+
 

@@ -15,24 +15,33 @@
 
   <ion-side-menu side="left" class="loginBg" >
     <ion-header-bar class="bar-stable bar-positive">
-  
-       <img src=""><br>
-       <p>Nguyễn Hữu Chinh</p>
+       <p>Xin chào, Admin</p>
     </ion-header-bar>
     <ion-content >
-    <div class="list card">
+  <div class="list card ">
 
-  <div class="item item-avatar">
-    <img src="{{profile.face}}">
-    <h2>{{profile.name}}</h2>
-    <p>{{profile.deseg}}</p>
-  </div>
+    <div class="item item-avatar" >
+      <img src="img/user.jpg">
+      <h2>Nguyễn Hữu Chinh</h2>
+      <p>Web Developer</p>
+    </div>
 </div>
       <ion-list id="menuLinks">
-        <ion-item menu-close href="#/app/dashboard"><i class="ion ion-home"></i> Home </ion-item>
-        <ion-item menu-close href="#/app/listns"><i class="ion ion-star"></i> Nhân Sự</ion-item>
-        <ion-item menu-close href="#/app/profiles"><i class="ion ion-star"></i> Chức vụ</ion-item>
-		<ion-item menu-close href="#" ng-click="logout()"><i class="ion ion-book"></i> Logout </ion-item>
+        <ion-item menu-close href="#/app/home"><i class="ion ion-home"></i> Home </ion-item>
+
+        <ion-item menu-close href="#/app/listns">
+        <i class="icon ion-person-stalker"></i> Danh sách nhân viên
+        <span class="badge badge-assertive"><div ng-controller="ListnsCtrl">{{num}}</div></span>
+        </ion-item>
+
+        <ion-item menu-close href="#/app/phongban"><i class="ion ion-star"></i> Phòng ban
+          <span class="badge badge-assertive"><div ng-controller="PhongbanCtrl">{{num}}</div></span>
+        </ion-item>
+
+        <ion-item menu-close href="#/app/chucvu"><i class="ion ion-star"></i> Chức vụ
+         <span class="badge badge-assertive"><div ng-controller="ChucvuCtrl">{{num}}</div></span>
+      </ion-item>
+		<ion-item menu-close href="#" ng-click="logout()"><i class="icon ion-unlocked""></i> Logout </ion-item>
       </ion-list>
     </ion-content>
   </ion-side-menu>
