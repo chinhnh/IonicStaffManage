@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ionic'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $ionicPopover, $timeout,  $location, $ionicPopup) {
   $scope.loginData = {};
@@ -32,9 +32,19 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ListnsCtrl'
-	,function ($scope, NhansuService) {
+	,function ($scope,$ionicLoading, NhansuService) {
+	    
+	    $ionicLoading.show({
+	    content: 'Loading',
+	    animation: 'fade-in',
+	    showBackdrop: true,
+	    maxWidth: 200,
+	    showDelay: 0
+	      });
+
        NhansuService.getNhansu().
        success(function(result){
+       	$ionicLoading.hide();
             $scope.data = result.nhansu;
             $scope.num=result.nhansu.length;
         });
