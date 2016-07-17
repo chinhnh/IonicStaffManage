@@ -1,7 +1,15 @@
 <ion-view view-title="Danh sách nhân sự">
   <ion-content>
+
+<div class="list list-inset">
+  <label class="item item-input">
+    <i class="icon ion-search placeholder-icon"></i>
+    <input type="text" ng-model="name" placeholder="Search Key">
+  </label>
+</div>
+
     <ion-list>
-      <ion-item ng-repeat="row in data" class="item item-avatar" href="#/app/detailns/{{row.ma_nhan_vien}}">
+      <ion-item ng-repeat="row in data | filter: name" class="item item-avatar" href="#/app/detailns/{{row.ma_nhan_vien}}">
 		   <img ng-src="img/{{row.images}}">
 		   <h2>{{row.ho_ten}}</h2>
 		 <h2>Mã nv: {{row.ma_nhan_vien}}</h2>
