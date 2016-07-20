@@ -51,14 +51,24 @@ angular.module('starter.controllers', ['ionic'])
 })
 
 .controller('DetailnsCtrl'
-	,function ($scope,$stateParams, NhansuService) {
+	,function ($scope,$stateParams,$ionicLoading, NhansuService) {
+
+	   $ionicLoading.show({
+	    content: 'Loading',
+	    animation: 'fade-in',
+	    showBackdrop: true,
+	    maxWidth: 200,
+	    showDelay: 0
+	      });
+
 		var currentId = $stateParams.id;
        NhansuService.getNhansu().
        success(function(result){
- 
+            
             var data =result.nhansu ;
             for (var i = 0; i < data.length; i++) {
             	if(data[i].ma_nhan_vien == parseInt(currentId)){
+            		$ionicLoading.hide();
             	 $scope.row = data[i];
             	 //console.log(data[i]);
             	}
@@ -67,7 +77,7 @@ angular.module('starter.controllers', ['ionic'])
 })
 
 .controller('HomeCtrl'
-	,function ($scope, $stateParams, HomeService) {
+	,function ($scope, $stateParams,$ionicLoading, HomeService) {
       HomeService.getHomeService().
       success  (function(result){
       	$scope.data=result;
@@ -75,7 +85,7 @@ angular.module('starter.controllers', ['ionic'])
 	
 })
 .controller('HomeDetailCtrl',
-	function ($scope,$stateParams, HomeService){
+	function ($scope,$stateParams,$ionicLoading, HomeService){
 		var currentId = $stateParams.id;
 HomeService.getHomeService().
 success ( function(result){
@@ -89,16 +99,24 @@ for (var i = 0; i < data.length; i++) {
 });
 })
 .controller('PhongbanCtrl'
-	,function ($scope, $stateParams, PhongbanService) {
+	,function ($scope, $stateParams,$ionicLoading, PhongbanService) {
+	    $ionicLoading.show({
+	    content: 'Loading',
+	    animation: 'fade-in',
+	    showBackdrop: true,
+	    maxWidth: 200,
+	    showDelay: 0
+	      });
       PhongbanService.getPhongbanService().
       success  (function(result){
+      	$ionicLoading.hide();
       	$scope.data=result;
       	$scope.num=result.length;
       });
 	
 })
 .controller('PhongbanDetailCtrl',
-	function ($scope,$stateParams, PhongbanService){
+	function ($scope,$stateParams,$ionicLoading, PhongbanService){
 		var currentId = $stateParams.id;
 PhongbanService.getPhongbanService().
 success ( function(result){
@@ -112,7 +130,7 @@ for (var i = 0; i < data.length; i++) {
 });
 })
 .controller('ChucvuCtrl'
-	,function ($scope, $stateParams, ChucvuService) {
+	,function ($scope, $stateParams,$ionicLoading, ChucvuService) {
       ChucvuService.getChucvuService().
       success  (function(result){
       	$scope.data=result;
@@ -121,7 +139,7 @@ for (var i = 0; i < data.length; i++) {
 	
 })
 .controller('ChucvuDetailCtrl',
-	function ($scope,$stateParams, ChucvuService){
+	function ($scope,$stateParams,$ionicLoading, ChucvuService){
 		var currentId = $stateParams.id;
 ChucvuService.getChucvuService().
 success ( function(result){
@@ -135,10 +153,19 @@ for (var i = 0; i < data.length; i++) {
 });
 })
 .controller('DetailCtrl',
-	function ($scope,$stateParams, $http){
+	function ($scope,$stateParams,$ionicLoading, $http){
+
+		 $ionicLoading.show({
+	    content: 'Loading',
+	    animation: 'fade-in',
+	    showBackdrop: true,
+	    maxWidth: 200,
+	    showDelay: 0
+	      });
 		var currentId = $stateParams.id;
 $http.get('http://nhansu.16mb.com/apidetail/'+currentId)
 .success ( function(result){
+	$ionicLoading.hide();
 	$scope.data=result;
 	//console.log(result);
 });

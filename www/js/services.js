@@ -31,5 +31,16 @@ dataService.getChucvuService=function(){
 }
 return dataService;
 });
+// .factory('Loading',function($ionicLoading){
+//       var data;
+//       data.loading=function(){
+//       content: 'Loading',
+//       animation: 'fade-in',
+//       showBackdrop: true,
+//       maxWidth: 200,
+//       showDelay: 0
+//         };
+//         return data;
+// });
 
 
