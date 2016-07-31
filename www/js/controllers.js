@@ -169,8 +169,29 @@ $http.get('http://nhansu.16mb.com/apidetail/'+currentId)
 	$scope.data=result;
 	//console.log(result);
 });
-});
+})
+// .controller('PostCtrl',function ($scope, $http){
 
+
+
+//  // //$scope.data = {};
+
+//  //      $scope.hello = function() {
+//  //        //var link = 'http://localhost/server/api.php';
+//  //        console.log($scope.name);
+//  //        // $http.post(link, {name : $scope.name}).then(function (res){
+//  //        //     $scope.response = res.data;
+//  //        //     console.log(res.data);
+//  //        // });
+//  //    };
+// });
+.controller('PostCtrl', ['$scope', function($scope) 
+            {
+                $scope.hello = function() 
+                {
+              $scope.greeting = 'Xin chào ' + $scope.name +' tuổi ' + $scope.age + '!';
+                };
+            }]);
 
 
 
