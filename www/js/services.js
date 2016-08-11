@@ -11,7 +11,7 @@ return dataService;
 .factory('NhansuService',['$http',function($http){
 var dataService={};
 dataService.getNhansu=function (){
-  return $http.get('http://nhansu.16mb.com/apinhansu');
+  return $http.get('http://localhost/server/larave_fw/ql_nhansu/api/nhansu');
 }
 return dataService;
 
@@ -20,14 +20,14 @@ return dataService;
 .factory('PhongbanService',function($http){
 var dataService={};
 dataService.getPhongbanService=function(){
-  return $http.get('http://nhansu.16mb.com/apiphongban');
+  return $http.get('http://localhost/server/larave_fw/ql_nhansu/api/phongban');
 }
 return dataService;
 })
 .factory('ChucvuService',function($http){
 var dataService={};
 dataService.getChucvuService=function(){
-  return $http.get('http://nhansu.16mb.com/apichucvu');
+  return $http.get('http://localhost/server/larave_fw/ql_nhansu/api/chucvu');
 }
 return dataService;
 });
