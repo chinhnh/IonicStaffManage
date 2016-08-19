@@ -4,7 +4,7 @@
 <div class="list card">
 
   <div class="item item-avatar">
-   <img ng-src="img/{{row.images}}">
+   <img ng-src="http://localhost/server/larave_fw/ql_nhansu/resources/upload/{{row.images}}">
        <h2>{{row.ho_ten}}</h2>
      <h2>Mã nv: {{row.ma_nhan_vien}}</h2>
   </div>
@@ -23,8 +23,8 @@
 
   <div class=" item tabs tabs-secondary tabs-icon-left tabs-background-balanced tabs-color-dark ">
     <a class="button button-icon icon-left ion-settings" href="#/app/detail/{{row.ma_nhan_vien}}"> Công việc </a>|
-    <a class="button button-icon icon-left ion-clipboard" href="#/app/"> Hợp đồng </a>|
-    <a class="button button-icon icon-left ion-person-add" href="#/app/"> Gia đình </a>
+    <a class="button button-icon icon-left ion-clipboard" href="#/app/hopdong/{{row.ma_nhan_vien}}"> Hợp đồng </a>|
+    <a class="button button-icon icon-left ion-person-add" href="#/app/giadinh/{{row.ma_nhan_vien}}"> Gia đình </a>
   </div>
 </div>
   </ion-content>

@@ -10,7 +10,7 @@
 
     <ion-list>
       <ion-item ng-repeat="row in data | filter: name" class="item item-avatar item-icon-right" href="#/app/detailns/{{row.ma_nhan_vien}}">
-		   <img ng-src="img/{{row.images}}">
+		   <img ng-src="http://localhost/server/larave_fw/ql_nhansu/resources/upload/{{row.images}}">
 		   <h2>{{row.ho_ten}}</h2>
 		 <h2>Mã nv: {{row.ma_nhan_vien}}</h2>
 		 <h2 ng-if="row.gioi_tinh == 1">Giới tính:Nam</h2>

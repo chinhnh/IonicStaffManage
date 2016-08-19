@@ -170,6 +170,33 @@ $http.get('http://localhost/server/larave_fw/ql_nhansuService_5.2/api/detail/'+c
 	//console.log(result);
 });
 })
+.controller('HopdongCtrl',
+	function ($scope,$stateParams,$ionicLoading, $http){
+
+		 $ionicLoading.show({
+	    content: 'Loading',
+	    animation: 'fade-in',
+	    showBackdrop: true,
+	    maxWidth: 200,
+	    showDelay: 0
+	      });
+		var currentId = $stateParams.id;
+$http.get('http://localhost/server/larave_fw/ql_nhansuService_5.2/api/hopdong/'+currentId)
+.success ( function(result){
+	$ionicLoading.hide();
+	$scope.row=result;
+	console.log(result);
+});
+})
+.controller('GiadinhCtrl',
+	function ($scope,$stateParams,$ionicLoading, $http){
+		var currentId = $stateParams.id;
+$http.get('http://localhost/server/larave_fw/ql_nhansuService_5.2/api/giadinh/'+currentId)
+.success ( function(result){
+	$scope.row=result;
+	console.log(result);
+});
+})
 .controller('PostCtrl', function($scope, $http , $window, $ionicPopup) {
     $scope.data = {};
     $scope.submit = function(){
@@ -190,7 +217,7 @@ $http.get('http://localhost/server/larave_fw/ql_nhansuService_5.2/api/detail/'+c
       });
 
       $scope.delpost= function(id){
- var link = 'http://localhost/server/larave_fw/ql_nhansuService_5.2/api/delpost/'+id;
+        var link = 'http://localhost/server/larave_fw/ql_nhansuService_5.2/api/delpost/'+id;
         $http.delete(link, {delid : id})
         .then(function (res){
          // $scope.showAlert('Success');
@@ -206,3 +233,4 @@ $http.get('http://localhost/server/larave_fw/ql_nhansuService_5.2/api/detail/'+c
 	   });
 	 };
 });
+// .controller('')

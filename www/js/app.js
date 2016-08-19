@@ -170,6 +170,25 @@ views:{
      }
     }
   })
+     
+         .state('app.hopdong',{
+       url:'/hopdong/:id',
+       views:{
+        'menuContent':{
+          templateUrl:'templates/hopdong.html',
+          controller:'HopdongCtrl'
+        }
+       }
+       })
+             .state('app.giadinh',{
+       url:'/giadinh/:id',
+       views:{
+        'menuContent':{
+          templateUrl:'templates/giadinh.html',
+          controller:'GiadinhCtrl'
+        }
+       }
+       })
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/login');
 });
